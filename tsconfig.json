@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "sourceMap": true,
+    "noImplicitAny": true,
+    "module": "commonjs",
+    "target": "es6",
+    "jsx": "react",
+    "lib": [
+      "es2015",
+      "es2017",
+      "dom"
+    ],
+    "removeComments": true,
+    "allowSyntheticDefaultImports": false,
+    "allowJs": true,
+    "baseUrl": "./",
+  },
+  "include": ["./src/**/*"]
+}

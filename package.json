@@ -1,0 +1,48 @@
+{
+  "name": "oursweb2019",
+  "version": "0.0.1",
+  "description": "Oursweb 2019",
+  "main": "index.html",
+  "scripts": {
+    "start": "webpack-dev-server --mode development --open --hot",
+    "prebuild": "npm run clean",
+    "build": "webpack --mode production",
+    "postbuild": "react-snap",
+    "clean": "rimraf dist/*"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@types/react": "^16.8.12",
+    "@types/react-dom": "^16.8.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^5.2.1",
+    "cross-env": "^5.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "minimalcss": "^0.8.2",
+    "react-snap": "^1.23.0",
+    "rimraf": "^2.6.3",
+    "source-map-loader": "^0.2.4",
+    "typescript": "^3.4.2",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0",
+    "webpack-dev-server": "^3.2.1"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "useTabs": false,
+    "tabWidth": 2,
+    "trailingComma": "es5",
+    "semi": false,
+    "singleQuote": true
+  },
+  "reactSnap": {
+    "source": "dist",
+    "include": [
+      "/index.html"
+    ]
+  }
+}
