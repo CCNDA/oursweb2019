@@ -2,7 +2,7 @@
   "name": "oursweb2019",
   "version": "0.0.1",
   "description": "Oursweb 2019",
-  "main": "index.html",
+  "main": "dist/index.html",
   "scripts": {
     "start": "webpack-dev-server --mode development --open --hot",
     "prebuild": "npm run clean",
@@ -29,7 +29,8 @@
     "typescript": "^3.4.2",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
-    "webpack-dev-server": "^3.2.1"
+    "webpack-dev-server": "^3.2.1",
+    "workbox-webpack-plugin": "^4.2.0"
   },
   "prettier": {
     "printWidth": 80,

@@ -1,5 +1,6 @@
-const path = require('path')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path'),
+  HtmlWebpackPlugin = require('html-webpack-plugin'),
+  workboxPlugin = require('workbox-webpack-plugin')
 
 module.exports = {
   entry: './src/index.tsx',
@@ -29,6 +30,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+    }),
+
+    new workboxPlugin.GenerateSW({
+      swDest: 'sw.js',
+      clientsClaim: true,
+      skipWaiting: true,
     }),
   ],
 }
