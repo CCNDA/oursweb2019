@@ -4,6 +4,9 @@
     "sourceMap": true,
     "noImplicitAny": true,
     "module": "commonjs",
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "target": "es6",
     "jsx": "react",
     "lib": [
@@ -12,9 +15,17 @@
       "dom"
     ],
     "removeComments": true,
-    "allowSyntheticDefaultImports": false,
     "allowJs": true,
-    "baseUrl": "./",
-  },
-  "include": ["./src/**/*"]
+    "baseUrl": "./src",
+    "paths": {
+      "@app/*": [ "app/*" ],
+      "@assets/*": [ "assets/*" ],
+      "@pages/*": [ "pages/*" ],
+      "@services/*": [ "services/*" ],
+      "@tests/*": [ "./*" ],
+      "@components/*": [ "components/*" ],
+      "@theme/*": [ "theme/*" ],
+      "@data/*": [ "data/*" ]
+    }
+  }
 }

@@ -1,0 +1,44 @@
+{
+  "services": [
+    {
+      "name": "台灣聖經網",
+      "url": "www.taiwanbible.com",
+      "description": "基督教的社群網站，包含基督徒靈修、成長、彼此互動、交流的空間，同時提供各式聖經工具。",
+      "icon": {
+        "default": ""
+      }
+    },
+    {
+      "name": "教會機構名錄",
+      "url": "church.oursweb.net",
+      "description": "收錄全球華人教會機構詳細資訊，依照地圖、地區、關鍵字方式檢所，內容包括通訊、聚會、活動等。",
+      "icon": {
+        "default": ""
+      }
+    },
+    {
+      "name": "活動訊息佈告",
+      "url": "event.oursweb.net",
+      "description": "最新基督教活動訊息，包含福音佈道、信徒聚會、研經學習、宣教差傳等，並透過地圖、行事曆瀏覽。",
+      "icon": {
+        "default": ""
+      }
+    },
+    {
+      "name": "聖經與世界瞭望",
+      "url": "bibletower.net",
+      "description": "以基督信仰所建立的論壇，讓彼此可以心靈分享與交流，在論壇中交流經驗、學習知識，實踐信仰。",
+      "icon": {
+        "default": ""
+      }
+    },
+    {
+      "name": "關於我們",
+      "url": "www.ccnda.org",
+      "description": "各項服務由中華基督教網路發展協會所提供，我們致力於透過網路連結與分享資訊、愛心與行動。",
+      "icon": {
+        "default": ""
+      }
+    }
+  ]
+}
