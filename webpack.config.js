@@ -7,8 +7,8 @@ const path = require('path'),
 module.exports = {
   entry: './src/app/app.tsx',
   output: {
-    chunkFilename: '[name].[chunkhash:4].js',
-    filename: '[name].[chunkhash:4].js',
+    chunkFilename: '[name].[hash:4].js',
+    filename: '[name].[hash:4].js',
     path: path.join(__dirname, '/dist'),
   },
 

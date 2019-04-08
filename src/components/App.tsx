@@ -61,7 +61,9 @@ const App = () => {
               alt="Oursweb 我們的網站"
               src={require('@assets/logo/logo.gif')}
             />
+            <Responsive style={{ margin: '0.5rem 0' }}>
             Oursweb 我們的網站
+            </Responsive>
           </Header>
         </Segment>
         <Segment basic>
