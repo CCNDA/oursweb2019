@@ -23,8 +23,8 @@ const listItems = () =>
       <Item.Group>
         <Item
           as="a"
-          style={{ minHeight: 100, padding: '1rem 0' }}
-          href={`https://${data.url}` as string}
+          style={{ minHeight: 120, padding: '1rem 0' }}
+          href={data.url}
           target="_blank"
         >
           <Item.Image
@@ -37,6 +37,7 @@ const listItems = () =>
             <Item.Description>{data.description}</Item.Description>
           </Item.Content>
         </Item>
+        <Divider />
       </Item.Group>
     </Grid.Column>
   ))
@@ -53,15 +54,15 @@ const App = () => {
           <Header as="h1">Oursweb 我們的網站</Header>
         </Segment>
         <Segment basic>
-          <Grid container doubling stackable columns={3} divided>
+          <Grid container doubling stackable columns={3}>
             <Grid.Row>{listItems()}</Grid.Row>
           </Grid>
         </Segment>
       </Responsive>
 
-      <Segment vertical style={{ margin: '1em 0' }}>
+      <Segment vertical style={{ margin: '1rem 0' }}>
         <Container textAlign="center">
-          <List horizontal divided link size="small">
+          <List horizontal link size="small">
             <List.Item
               as="a"
               href="https://www.ccnda.org/rules"
@@ -73,7 +74,7 @@ const App = () => {
               服務信箱
             </List.Item>
           </List>
-          <Grid divided inverted stackable>
+          <Grid inverted stackable>
             <Grid.Column>
               <Header as="h6">
                 網站服務由 <a href="https://www.ccnda.org">中華基督教網路發展協會</a> 提供
