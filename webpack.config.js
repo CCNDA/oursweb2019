@@ -1,7 +1,8 @@
 const path = require('path'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   workboxPlugin = require('workbox-webpack-plugin'),
-  MiniCssExtractPlugin = require('mini-css-extract-plugin')
+  MiniCssExtractPlugin = require('mini-css-extract-plugin'),
+  CopyPlugin = require('copy-webpack-plugin')
 
 module.exports = {
   entry: './src/app/app.tsx',
@@ -86,5 +87,6 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
+    new CopyPlugin([{ from: './src/web.config', to: './web.config' }]),
   ],
 }
