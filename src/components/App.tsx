@@ -29,7 +29,11 @@ const listItems = () =>
         >
           <Item.Image
             alt={data.name}
-            src={require('@assets/images/wireframe/square-image.png')}
+            src={
+              data.icon.default
+                ? require(`@assets/icons/${data.icon.default}`)
+                : require('@assets/images/wireframe/square-image.png')
+            }
             size="tiny"
           />
           <Item.Content>
@@ -51,7 +55,14 @@ const App = () => {
           style={{ minHeight: 100, padding: '2rem 0' }}
           vertical
         >
-          <Header as="h1">Oursweb 我們的網站</Header>
+          <Header as="h1">
+            <Image
+              className="logo"
+              alt="Oursweb 我們的網站"
+              src={require('@assets/logo/logo.gif')}
+            />
+            Oursweb 我們的網站
+          </Header>
         </Segment>
         <Segment basic>
           <Grid container doubling stackable columns={3}>
@@ -77,7 +88,8 @@ const App = () => {
           <Grid inverted stackable>
             <Grid.Column>
               <Header as="h6">
-                網站服務由 <a href="https://www.ccnda.org">中華基督教網路發展協會</a> 提供
+                網站服務由{' '}
+                <a href="https://www.ccnda.org">中華基督教網路發展協會</a> 提供
                 <br /> Serve by Chinese Christian Network Development
                 Association
               </Header>

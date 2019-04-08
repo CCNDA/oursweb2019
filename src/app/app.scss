@@ -1,6 +1,19 @@
 @import '~@theme/colors.scss';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
 
+html,
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+}
 
 body {
   background: $shadow;
+}
+
+.logo {
+  width: 150px !important;
+}
+
+h1 {
+  vertical-align: middle !important;
 }
