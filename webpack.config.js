@@ -80,6 +80,9 @@ module.exports = {
       swDest: 'sw.js',
       clientsClaim: true,
       skipWaiting: true,
+      globPatterns: ['**/*.{html,js,css,png,ttf,eot,woff,woff2,svg}'],
+      maximumFileSizeToCacheInBytes: 10000000, //10MB
+      navigateFallback: '/index.html',
     }),
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
