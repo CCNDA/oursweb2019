@@ -1,29 +1,61 @@
 const path = require('path'),
+  glob = require('glob'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   workboxPlugin = require('workbox-webpack-plugin'),
   MiniCssExtractPlugin = require('mini-css-extract-plugin'),
   CopyPlugin = require('copy-webpack-plugin'),
-  ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
+  ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin'),
+  webpack = require('webpack'),
+  TerserPlugin = require('terser-webpack-plugin'),
+  PurgecssPlugin = require('purgecss-webpack-plugin')
+
+const devMode = process.env.NODE_ENV !== 'production'
+
+const PATHS = {
+  src: path.join(__dirname, 'src'),
+}
 
 module.exports = {
+  devtool: 'source-map',
   entry: './src/app/app.tsx',
   output: {
-    chunkFilename: '[name].[hash:4].js',
-    filename: '[name].[hash:4].js',
+    chunkFilename: '[name].[contenthash:4].js',
+    filename: '[name].[contenthash:4].js',
     path: path.join(__dirname, '/dist'),
   },
 
   optimization: {
+    minimizer: [new TerserPlugin()],
+    runtimeChunk: 'single',
     splitChunks: {
       chunks: 'all',
+      maxInitialRequests: Infinity,
+      minSize: 0,
+      cacheGroups: {
+        styles: {
+          name: 'styles',
+          test: /\.css$/,
+          chunks: 'all',
+          enforce: true,
+        },
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name(module) {
+            // get the name. E.g. node_modules/packageName/not/this/part.js
+            // or node_modules/packageName
+            const packageName = module.context.match(
+              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+            )[1]
+
+            // npm package names are URL-safe, but some servers don't like @ symbols
+            return `npm.${packageName.replace('@', '')}`
+          },
+        },
+      },
     },
   },
 
-  // Enable sourcemaps for debugging webpack's output.
-  devtool: 'source-map',
-
   resolve: {
-    // Add '.ts' and '.tsx' as resolvable extensions.
     extensions: ['.ts', '.tsx', '.js', '.json'],
 
     alias: {
@@ -40,25 +72,17 @@ module.exports = {
 
   module: {
     rules: [
-      // All files with a '.ts' or '.tsx' extension will be handled by 'awesome-typescript-loader'.
       { test: /\.tsx?$/, loader: 'awesome-typescript-loader' },
-      // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
       { enforce: 'pre', test: /\.js$/, loader: 'source-map-loader' },
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
-          'style-loader?sourceMap',
-          'css-loader?sourceMap',
-          'sass-loader?sourceMap',
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+          'sass-loader',
         ],
       },
-      {
-        test: /\.css$/,
-        use: ['style-loader?sourceMap', 'css-loader?sourceMap'],
-      },
-      // "url" loader works like "file" loader except that it embeds assets
-      // smaller than specified limit in bytes as data URLs to avoid requests.
-      // A missing `test` is equivalent to a match.
       {
         test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
         loader: require.resolve('url-loader'),
@@ -67,8 +91,6 @@ module.exports = {
           name: 'static/media/[name].[hash:8].[ext]',
         },
       },
-      // "file" loader makes sure assets end up in the `build` folder.
-      // When you `import` an asset, you get its filename.
       {
         test: [/\.eot$/, /\.ttf$/, /\.svg$/, /\.woff$/, /\.woff2$/],
         loader: require.resolve('file-loader'),
@@ -80,8 +102,21 @@ module.exports = {
   },
 
   plugins: [
+    new webpack.HashedModuleIdsPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeRedundantAttributes: true,
+        useShortDoctype: true,
+        removeEmptyAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        keepClosingSlash: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      },
     }),
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer',
@@ -93,10 +128,11 @@ module.exports = {
       navigateFallback: '/index.html',
     }),
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // both options are optional
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+      filename: devMode ? '[name].css' : '[name].[contenthash:4].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[contenthash:4].css',
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
     }),
     new CopyPlugin([{ from: './src/web.config', to: './web.config' }]),
   ],
