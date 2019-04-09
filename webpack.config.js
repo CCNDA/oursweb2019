@@ -2,7 +2,8 @@ const path = require('path'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   workboxPlugin = require('workbox-webpack-plugin'),
   MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-  CopyPlugin = require('copy-webpack-plugin')
+  CopyPlugin = require('copy-webpack-plugin'),
+  ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin')
 
 module.exports = {
   entry: './src/app/app.tsx',
@@ -10,6 +11,12 @@ module.exports = {
     chunkFilename: '[name].[hash:4].js',
     filename: '[name].[hash:4].js',
     path: path.join(__dirname, '/dist'),
+  },
+
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
   },
 
   // Enable sourcemaps for debugging webpack's output.
@@ -76,7 +83,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
-
+    new ScriptExtHtmlWebpackPlugin({
+      defaultAttribute: 'defer',
+    }),
     new workboxPlugin.GenerateSW({
       swDest: 'sw.js',
       clientsClaim: true,
