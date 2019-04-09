@@ -20,42 +20,43 @@ module.exports = {
   devtool: 'source-map',
   entry: './src/app/app.tsx',
   output: {
-    chunkFilename: '[name].[contenthash:4].js',
-    filename: '[name].[contenthash:4].js',
+    chunkFilename: '[name].[hash:4].js',
+    filename: '[name].[hash:4].js',
     path: path.join(__dirname, '/dist'),
-    publicPath: '/',
   },
 
-  optimization: {
-    minimizer: [new TerserPlugin()],
-    runtimeChunk: 'single',
-    splitChunks: {
-      chunks: 'all',
-      maxInitialRequests: Infinity,
-      minSize: 0,
-      cacheGroups: {
-        styles: {
-          name: 'styles',
-          test: /\.css$/,
+  optimization: devMode
+    ? {}
+    : {
+        minimizer: [new TerserPlugin()],
+        runtimeChunk: 'single',
+        splitChunks: {
           chunks: 'all',
-          enforce: true,
-        },
-        vendor: {
-          test: /[\\/]node_modules[\\/]/,
-          name(module) {
-            // get the name. E.g. node_modules/packageName/not/this/part.js
-            // or node_modules/packageName
-            const packageName = module.context.match(
-              /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-            )[1]
+          maxInitialRequests: Infinity,
+          minSize: 0,
+          cacheGroups: {
+            styles: {
+              name: 'styles',
+              test: /\.css$/,
+              chunks: 'all',
+              enforce: true,
+            },
+            vendor: {
+              test: /[\\/]node_modules[\\/]/,
+              name(module) {
+                // get the name. E.g. node_modules/packageName/not/this/part.js
+                // or node_modules/packageName
+                const packageName = module.context.match(
+                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
+                )[1]
 
-            // npm package names are URL-safe, but some servers don't like @ symbols
-            return `npm.${packageName.replace('@', '')}`
+                // npm package names are URL-safe, but some servers don't like @ symbols
+                return `npm.${packageName.replace('@', '')}`
+              },
+            },
           },
         },
       },
-    },
-  },
 
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.json'],
@@ -69,6 +70,7 @@ module.exports = {
       '@components': path.resolve('./src/components/'),
       '@theme': path.resolve('./src/theme/'),
       '@data': path.resolve('./src/data/'),
+      'react-dom': devMode ? '@hot-loader/react-dom' : 'react-dom',
     },
   },
 
@@ -103,39 +105,46 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    new webpack.HashedModuleIdsPlugin(),
-    new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[contenthash:4].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[contenthash:4].css',
-    }),
-    new PurgecssPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-    }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeRedundantAttributes: true,
-        useShortDoctype: true,
-        removeEmptyAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        keepClosingSlash: true,
-        minifyJS: true,
-        minifyCSS: true,
-        minifyURLs: true,
-      },
-    }),
-    new ScriptExtHtmlWebpackPlugin({
-      defaultAttribute: 'defer',
-    }),
-    new CopyPlugin([{ from: './src/web.config', to: './web.config' }]),
-    new workboxPlugin.GenerateSW({
-      swDest: 'sw.js',
-      clientsClaim: true,
-      skipWaiting: true,
-      navigateFallback: '/index.html',
-    }),
-  ],
+  plugins: devMode
+    ? [
+        new HtmlWebpackPlugin({
+          template: './src/index.html',
+        }),
+      ]
+    : [
+        new webpack.HashedModuleIdsPlugin(),
+        new MiniCssExtractPlugin({
+          filename: devMode ? '[name].css' : '[name].[contenthash:4].css',
+          chunkFilename: devMode ? '[id].css' : '[id].[contenthash:4].css',
+        }),
+        new PurgecssPlugin({
+          paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+        }),
+        new HtmlWebpackPlugin({
+          template: './src/index.html',
+          minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true,
+          },
+        }),
+        new ScriptExtHtmlWebpackPlugin({
+          defaultAttribute: 'defer',
+        }),
+        new CopyPlugin([{ from: './src/web.config', to: './web.config' }]),
+        new workboxPlugin.GenerateSW({
+          swDest: 'sw.js',
+          clientsClaim: true,
+          skipWaiting: true,
+          exclude: ['web.config'],
+          navigateFallback: '/index.html',
+        }),
+      ],
 }
