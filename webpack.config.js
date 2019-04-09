@@ -6,7 +6,7 @@ const path = require('path'),
   CopyPlugin = require('copy-webpack-plugin'),
   ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin'),
   webpack = require('webpack'),
-  TerserPlugin = require('terser-webpack-plugin'),
+  TerserPlugin = require('terser-webpack-plugin')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
