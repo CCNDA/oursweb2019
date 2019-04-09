@@ -7,7 +7,6 @@ const path = require('path'),
   ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin'),
   webpack = require('webpack'),
   TerserPlugin = require('terser-webpack-plugin'),
-  PurgecssPlugin = require('purgecss-webpack-plugin')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
@@ -116,9 +115,6 @@ module.exports = {
         new MiniCssExtractPlugin({
           filename: devMode ? '[name].css' : '[name].[contenthash:4].css',
           chunkFilename: devMode ? '[id].css' : '[id].[contenthash:4].css',
-        }),
-        new PurgecssPlugin({
-          paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
         }),
         new HtmlWebpackPlugin({
           template: './src/index.html',
