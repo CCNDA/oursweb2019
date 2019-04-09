@@ -16,12 +16,14 @@ const PATHS = {
 }
 
 module.exports = {
+  mode: devMode ? 'development' : 'production',
   devtool: 'source-map',
   entry: './src/app/app.tsx',
   output: {
     chunkFilename: '[name].[contenthash:4].js',
     filename: '[name].[contenthash:4].js',
     path: path.join(__dirname, '/dist'),
+    publicPath: '/',
   },
 
   optimization: {
@@ -103,6 +105,13 @@ module.exports = {
 
   plugins: [
     new webpack.HashedModuleIdsPlugin(),
+    new MiniCssExtractPlugin({
+      filename: devMode ? '[name].css' : '[name].[contenthash:4].css',
+      chunkFilename: devMode ? '[id].css' : '[id].[contenthash:4].css',
+    }),
+    new PurgecssPlugin({
+      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       minify: {
@@ -121,19 +130,12 @@ module.exports = {
     new ScriptExtHtmlWebpackPlugin({
       defaultAttribute: 'defer',
     }),
+    new CopyPlugin([{ from: './src/web.config', to: './web.config' }]),
     new workboxPlugin.GenerateSW({
       swDest: 'sw.js',
       clientsClaim: true,
       skipWaiting: true,
       navigateFallback: '/index.html',
     }),
-    new MiniCssExtractPlugin({
-      filename: devMode ? '[name].css' : '[name].[contenthash:4].css',
-      chunkFilename: devMode ? '[id].css' : '[id].[contenthash:4].css',
-    }),
-    new PurgecssPlugin({
-      paths: glob.sync(`${PATHS.src}/**/*`, { nodir: true }),
-    }),
-    new CopyPlugin([{ from: './src/web.config', to: './web.config' }]),
   ],
 }
