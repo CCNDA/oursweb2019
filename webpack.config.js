@@ -6,7 +6,8 @@ const path = require('path'),
   CopyPlugin = require('copy-webpack-plugin'),
   ScriptExtHtmlWebpackPlugin = require('script-ext-html-webpack-plugin'),
   webpack = require('webpack'),
-  TerserPlugin = require('terser-webpack-plugin')
+  TerserPlugin = require('terser-webpack-plugin'),
+  Critters = require('critters-webpack-plugin')
 
 const devMode = process.env.NODE_ENV !== 'production'
 
@@ -134,12 +135,23 @@ module.exports = {
         new ScriptExtHtmlWebpackPlugin({
           defaultAttribute: 'defer',
         }),
-        new CopyPlugin([{ from: './src/web.config', to: './web.config' }]),
+        new Critters({
+          inline: true,
+          preload: 'swap',
+          preloadFonts: false,
+        }),
+        new CopyPlugin([
+          { from: './src/web.config', to: './web.config' },
+          {
+            from: './src/manifest.json',
+            to: './manifest.json',
+          },
+        ]),
         new workboxPlugin.GenerateSW({
           swDest: 'sw.js',
           clientsClaim: true,
           skipWaiting: true,
-          exclude: ['web.config'],
+          exclude: ['web.config', '*.json'],
           navigateFallback: '/index.html',
         }),
       ],

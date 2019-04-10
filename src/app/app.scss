@@ -1,11 +1,6 @@
 @import '~@theme/colors.scss';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC');
 
-html,
-body {
-  font-family: 'Noto Sans TC', sans-serif !important;
-}
-
 body {
   background: $shadow !important;
 }
@@ -14,10 +9,18 @@ body {
   width: 150px !important;
 }
 
-h1, h2, h3, h4, h5, h6, p, div, span, a {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+div,
+span,
+a {
   font-family: 'Noto Sans TC', sans-serif !important;
 }
-
 
 h1 {
   vertical-align: middle !important;
