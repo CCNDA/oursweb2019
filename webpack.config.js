@@ -136,9 +136,9 @@ module.exports = {
           defaultAttribute: 'defer',
         }),
         new Critters({
-          inline: true,
           preload: 'swap',
-          preloadFonts: false,
+          preloadFonts: true,
+          pruneSource: false,
         }),
         new CopyPlugin([
           { from: './src/web.config', to: './web.config' },
