@@ -101,7 +101,7 @@
       "url": "https://biblesearch.com.tw/topic",
       "description": "近五千個各式中英文主題，以及超過六萬節的經文，讓使用可以快速找到相關的聖經章節。",
       "icon": {
-        "default": ""
+        "default": "bibletopic.png"
       }
     },
     {
