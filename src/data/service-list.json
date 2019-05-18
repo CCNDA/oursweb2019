@@ -45,7 +45,7 @@
       "url": "https://www.loveuno.com",
       "description": "在「真愛」與「承諾」的基礎，讓未婚基督徒透過網路，認識教會以外的基督徒，尋找合適的另一半。",
       "icon": {
-        "default": ""
+        "default": "loveuno.png"
       }
     },
     {
@@ -93,7 +93,7 @@
       "url": "https://biblesearch.com.tw/compile",
       "description": "針對不同中文譯本製作的彙編，超過四萬六千個詞彙，以完整、常用、人名、地名等分類快速導覽。",
       "icon": {
-        "default": ""
+        "default": "biblecompile.png"
       }
     },
     {
