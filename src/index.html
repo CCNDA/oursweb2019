@@ -1,46 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="manifest" href="/manifest.json" />
-    <title>OursWeb.Net 我們的網站</title>
 
-    <script>
-      if (
-        window.location.protocol == 'https:' &&
-        'serviceWorker' in navigator
-      ) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker
-            .register('/sw.js')
-            .then(registration => {
-              console.log('SW registered: ', registration)
-            })
-            .catch(registrationError => {
-              console.log('SW registration failed: ', registrationError)
-            })
-        })
-      }
-    </script>
-  </head>
-  <body>
-    <div id="root"></div>
-  </body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link rel="manifest" href="/manifest.json" />
+  <title>OursWeb.Net 我們的網站</title>
+
+  <script>
+    if (
+      window.location.protocol == 'https:' &&
+      'serviceWorker' in navigator
+    ) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker
+          .register('/sw.js')
+          .then(registration => {
+            console.log('SW registered: ', registration)
+          })
+          .catch(registrationError => {
+            console.log('SW registration failed: ', registrationError)
+          })
+      })
+    }
+  </script>
+</head>
+
+<body>
+  <div id="root"></div>
+</body>
+
 </html>
-
-<link
-  rel="preload"
-  href="//fonts.googleapis.com/earlyaccess/notosanstc.css"
-  as="style"
-  onload="this.onload=null;this.rel='stylesheet'"
-/>
-<noscript>
-  <link
-    rel="stylesheet"
-    href="//fonts.googleapis.com/earlyaccess/notosanstc.css"
-/></noscript>
 
 <script>
   /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
@@ -49,31 +40,31 @@
   - enabling async CSS loading in browsers that do not support rel=preload
   - applying rel preload css once loaded, whether supported or not.
   */
-  ;(function(w) {
+  ; (function (w) {
     'use strict'
     // rel=preload support test
     if (!w.loadCSS) {
-      w.loadCSS = function() {}
+      w.loadCSS = function () { }
     }
     // define on the loadCSS obj
     var rp = (loadCSS.relpreload = {})
     // rel=preload feature support test
     // runs once and returns a function for compat purposes
-    rp.support = (function() {
+    rp.support = (function () {
       var ret
       try {
         ret = w.document.createElement('link').relList.supports('preload')
       } catch (e) {
         ret = false
       }
-      return function() {
+      return function () {
         return ret
       }
     })()
 
     // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
     // then change that media back to its intended value on load
-    rp.bindMediaToggle = function(link) {
+    rp.bindMediaToggle = function (link) {
       // remember existing media attr for ultimate state, or default to 'all'
       var finalMedia = link.media || 'all'
 
@@ -90,7 +81,7 @@
 
       // Set rel and non-applicable media type to start an async request
       // note: timeout allows this to happen async to let rendering continue in IE
-      setTimeout(function() {
+      setTimeout(function () {
         link.rel = 'stylesheet'
         link.media = 'only x'
       })
@@ -100,7 +91,7 @@
     }
 
     // loop through link elements in DOM
-    rp.poly = function() {
+    rp.poly = function () {
       // double check this to prevent external calls from running
       if (rp.support()) {
         return
@@ -130,12 +121,12 @@
       // rerun poly on an interval until onload
       var run = w.setInterval(rp.poly, 500)
       if (w.addEventListener) {
-        w.addEventListener('load', function() {
+        w.addEventListener('load', function () {
           rp.poly()
           w.clearInterval(run)
         })
       } else if (w.attachEvent) {
-        w.attachEvent('onload', function() {
+        w.attachEvent('onload', function () {
           rp.poly()
           w.clearInterval(run)
         })

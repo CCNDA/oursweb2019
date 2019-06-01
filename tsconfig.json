@@ -9,23 +9,19 @@
     "allowSyntheticDefaultImports": true,
     "target": "es6",
     "jsx": "react",
-    "lib": [
-      "es2015",
-      "es2017",
-      "dom"
-    ],
+    "lib": ["es2015", "es2017", "dom"],
     "removeComments": true,
     "allowJs": true,
     "baseUrl": "./src",
     "paths": {
-      "@app/*": [ "app/*" ],
-      "@assets/*": [ "assets/*" ],
-      "@pages/*": [ "pages/*" ],
-      "@services/*": [ "services/*" ],
-      "@tests/*": [ "./*" ],
-      "@components/*": [ "components/*" ],
-      "@theme/*": [ "theme/*" ],
-      "@data/*": [ "data/*" ]
+      "@app/*": ["app/*"],
+      "@assets/*": ["assets/*"],
+      "@pages/*": ["pages/*"],
+      "@services/*": ["services/*"],
+      "@tests/*": ["./*"],
+      "@components/*": ["components/*"],
+      "@theme/*": ["theme/*"],
+      "@data/*": ["data/*"]
     }
   }
 }

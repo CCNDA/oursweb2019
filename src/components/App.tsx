@@ -15,8 +15,6 @@ import {
 import { hot } from 'react-hot-loader/root'
 import { services } from '@data/service-list.json'
 
-const paragraphImage = require('@assets/images/wireframe/media-paragraph.png')
-
 const listItems = () =>
   services.map((data, index) => (
     <Grid.Column key={index}>
@@ -29,6 +27,7 @@ const listItems = () =>
         >
           <Item.Image
             alt={data.name}
+            loading="lazy"
             src={
               data.icon.default
                 ? require(`@assets/icons/${data.icon.default}`)
@@ -57,6 +56,7 @@ const App = () => {
         >
           <Header as="h1">
             <Image
+              loading="lazy"
               className="logo"
               alt="Oursweb 我們的網站"
               src={require('@assets/logo/logo.gif')}
