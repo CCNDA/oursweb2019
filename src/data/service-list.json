@@ -69,7 +69,7 @@
       "url": "http://tool.ccnda.net/mem/",
       "description": "線上背經工具，讓您漸進式，逐條背誦各式經文，把 神的話語時常藏在心裡。 （支援手機及平板）",
       "icon": {
-        "default": "devote.png"
+        "default": ""
       }
     },
     {
@@ -77,7 +77,7 @@
       "url": "https://www.ccnda.org/ministry",
       "description": "基督教資訊平台所需經費來自弟兄姊妹奉獻支持。誠摯邀請您在禱告中紀念，在奉獻上一起同工。",
       "icon": {
-        "default": ""
+        "default": "devote.png"
       }
     },
     {
