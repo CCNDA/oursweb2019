@@ -117,7 +117,7 @@
       "url": "http://tool.ccnda.net/qr/",
       "description": "讓您快速從五千個主題裡抽取金句卡，並對聖經各式主題有更多的了解。",
       "icon": {
-        "default": ""
+        "default": "bibleqrcode.png"
       }
     }
   ]
