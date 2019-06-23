@@ -37,7 +37,7 @@ const listItems = () =>
             size="tiny"
           />
           <Item.Content verticalAlign="middle">
-            <Item.Header textAlign="center">{data.name}</Item.Header>
+            <Item.Header className="text-center">{data.name}</Item.Header>
             <Item.Description className="mobile hidden">
               {data.description}
             </Item.Description>
