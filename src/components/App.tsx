@@ -10,6 +10,7 @@ import {
   List,
   Responsive,
   Segment,
+  GridRow,
 } from 'semantic-ui-react'
 
 import { hot } from 'react-hot-loader/root'
@@ -35,8 +36,13 @@ const listItems = () =>
             }
             size="tiny"
           />
-          <Item.Content>
-            <Item.Header as="h2">{data.name}</Item.Header>
+          <Item.Content verticalAlign="middle">
+            <Item.Header textAlign="center">{data.name}</Item.Header>
+            <Item.Description className="mobile hidden">
+              {data.description}
+            </Item.Description>
+          </Item.Content>
+          <Item.Content verticalAlign="middle" className="mobile only">
             <Item.Description>{data.description}</Item.Description>
           </Item.Content>
         </Item>
