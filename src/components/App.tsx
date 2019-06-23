@@ -67,7 +67,7 @@ const App = () => {
           </Header>
         </Segment>
         <Segment basic>
-          <Grid container doubling stackable columns={3}>
+          <Grid container doubling columns={3}>
             <Grid.Row>{listItems()}</Grid.Row>
           </Grid>
         </Segment>
