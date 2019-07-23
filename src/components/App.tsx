@@ -4,13 +4,13 @@ import {
   Container,
   Divider,
   Grid,
+  GridRow,
   Header,
   Image,
   Item,
   List,
   Responsive,
   Segment,
-  GridRow,
 } from 'semantic-ui-react'
 
 import { hot } from 'react-hot-loader/root'
@@ -41,9 +41,6 @@ const listItems = () =>
             <Item.Description className="mobile hidden">
               {data.description}
             </Item.Description>
-          </Item.Content>
-          <Item.Content verticalAlign="middle" className="mobile only">
-            <Item.Description>{data.description}</Item.Description>
           </Item.Content>
         </Item>
         <Divider />
@@ -91,6 +88,16 @@ const App = () => {
             </List.Item>
             <List.Item as="a" href="mailto:service@oursweb.net">
               服務信箱
+            </List.Item>
+            <List.Item as="a" href="https://www.ccnda.org" target="_blank">
+              關於我們
+            </List.Item>
+            <List.Item
+              as="a"
+              href="https://www.ccnda.org/devote/online"
+              target="_blank"
+            >
+              奉獻支持
             </List.Item>
           </List>
           <Grid inverted stackable>
