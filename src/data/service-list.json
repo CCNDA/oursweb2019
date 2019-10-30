@@ -25,11 +25,11 @@
       }
     },
     {
-      "name": "聖經與世界瞭望",
-      "url": "https://bibletower.net",
-      "description": "以基督信仰所建立的論壇，讓彼此可以心靈分享與交流，在論壇中交流經驗、學習知識，實踐信仰。",
+      "name": "愛諾園",
+      "url": "https://www.loveuno.com",
+      "description": "在「真愛」與「承諾」的基礎，讓未婚基督徒透過網路，認識教會以外的基督徒，尋找合適的另一半。",
       "icon": {
-        "default": "bibletower.png"
+        "default": "loveuno.png"
       }
     },
     {
@@ -41,11 +41,27 @@
       }
     },
     {
-      "name": "愛諾園",
-      "url": "https://www.loveuno.com",
-      "description": "在「真愛」與「承諾」的基礎，讓未婚基督徒透過網路，認識教會以外的基督徒，尋找合適的另一半。",
+      "name": "線上奉獻",
+      "url": "https://www.ccnda.org/devote/online",
+      "description": "基督教資訊平台所需經費來自弟兄姊妹奉獻支持。誠摯邀請您在禱告中紀念，在奉獻上一起同工。",
       "icon": {
-        "default": "loveuno.png"
+        "default": "devote.png"
+      }
+    },
+    {
+      "name": "為孩子禱告",
+      "url": "https://line.me/R/ti/p/%40pdz8841k",
+      "description": "透過每日的禱告詞，媽媽們可以為自己、孩子、學校、老師及孩子朋友代禱。用禱告托住每一個孩子！",
+      "icon": {
+        "default": "prayforchildren.png"
+      }
+    },
+    {
+      "name": "聖經與世界瞭望",
+      "url": "https://bibletower.net",
+      "description": "以基督信仰所建立的論壇，讓彼此可以心靈分享與交流，在論壇中交流經驗、學習知識，實踐信仰。",
+      "icon": {
+        "default": "bibletower.png"
       }
     },
     {
@@ -65,30 +81,6 @@
       }
     },
     {
-      "name": "背經工具",
-      "url": "http://tool.ccnda.net/mem/",
-      "description": "線上背經工具，讓您漸進式，逐條背誦各式經文，把 神的話語時常藏在心裡。 （支援手機及平板）",
-      "icon": {
-        "default": "biblemem.png"
-      }
-    },
-    {
-      "name": "線上奉獻",
-      "url": "https://www.ccnda.org/devote/online",
-      "description": "基督教資訊平台所需經費來自弟兄姊妹奉獻支持。誠摯邀請您在禱告中紀念，在奉獻上一起同工。",
-      "icon": {
-        "default": "devote.png"
-      }
-    },
-    {
-      "name": "聖經檢定",
-      "url": "https://www.taiwanbible.com/web/exam/list.jsp",
-      "description": "想知道你對聖經有多了解嗎？歡迎參加線上聖經檢定！透過線上問答，分析您聖經各個類別的熟悉度。",
-      "icon": {
-        "default": "bibleexam.png"
-      }
-    },
-    {
       "name": "經文彙編",
       "url": "https://biblesearch.com.tw/compile",
       "description": "針對不同中文譯本製作的彙編，超過四萬六千個詞彙，以完整、常用、人名、地名等分類快速導覽。",
@@ -105,11 +97,19 @@
       }
     },
     {
-      "name": "為孩子禱告",
-      "url": "https://line.me/R/ti/p/%40pdz8841k",
-      "description": "透過每日的禱告詞，媽媽們可以為自己、孩子、學校、老師及孩子朋友代禱。用禱告托住每一個孩子！",
+      "name": "背經工具",
+      "url": "http://tool.ccnda.net/mem/",
+      "description": "線上背經工具，讓您漸進式，逐條背誦各式經文，把 神的話語時常藏在心裡。 （支援手機及平板）",
       "icon": {
-        "default": "prayforchildren.png"
+        "default": "biblemem.png"
+      }
+    },
+    {
+      "name": "聖經檢定",
+      "url": "https://www.taiwanbible.com/web/exam/list.jsp",
+      "description": "想知道你對聖經有多了解嗎？歡迎參加線上聖經檢定！透過線上問答，分析您聖經各個類別的熟悉度。",
+      "icon": {
+        "default": "bibleexam.png"
       }
     },
     {

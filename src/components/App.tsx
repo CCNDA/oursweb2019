@@ -4,6 +4,7 @@ import {
   Container,
   Divider,
   Grid,
+  GridRow,
   Header,
   Image,
   Item,
@@ -35,9 +36,11 @@ const listItems = () =>
             }
             size="tiny"
           />
-          <Item.Content>
-            <Item.Header as="h2">{data.name}</Item.Header>
-            <Item.Description>{data.description}</Item.Description>
+          <Item.Content verticalAlign="middle">
+            <Item.Header className="text-center">{data.name}</Item.Header>
+            <Item.Description className="mobile hidden">
+              {data.description}
+            </Item.Description>
           </Item.Content>
         </Item>
         <Divider />
@@ -67,7 +70,7 @@ const App = () => {
           </Header>
         </Segment>
         <Segment basic>
-          <Grid container doubling stackable columns={3}>
+          <Grid container doubling columns={3}>
             <Grid.Row>{listItems()}</Grid.Row>
           </Grid>
         </Segment>
@@ -85,6 +88,16 @@ const App = () => {
             </List.Item>
             <List.Item as="a" href="mailto:service@oursweb.net">
               服務信箱
+            </List.Item>
+            <List.Item as="a" href="https://www.ccnda.org" target="_blank">
+              關於我們
+            </List.Item>
+            <List.Item
+              as="a"
+              href="https://www.ccnda.org/devote/online"
+              target="_blank"
+            >
+              奉獻支持
             </List.Item>
           </List>
           <Grid inverted stackable>
