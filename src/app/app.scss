@@ -1,4 +1,5 @@
 @import '~@theme/colors.scss';
+@import './responsive-semantic-ui.css';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC&display=swap&subset=chinese-traditional');
 
 body {
@@ -24,4 +25,13 @@ a {
 
 h1 {
   vertical-align: middle !important;
+}
+
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
 }
