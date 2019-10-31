@@ -73,9 +73,9 @@
       }
     },
     {
-      "name": "基督教複合式搜尋",
-      "url": "https://biblesearch.com.tw/aio/",
-      "description": "全新概念基督教搜尋引擎：透過單一關鍵字，一次搜尋全部結果。",
+      "name": "經文投影片",
+      "url": "https://biblesearch.com.tw/tools/bibleppt/slideMake.html",
+      "description": "投影片使用中文和合本聖經，一節一張，按書卷、章數分類製作完成。提供多種版型，歡迎大家多多利用。",
       "icon": {
         "default": "bibleaio.png"
       }
