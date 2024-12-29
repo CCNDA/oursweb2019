@@ -57,11 +57,11 @@
       }
     },
     {
-      "name": "聖經與世界瞭望",
-      "url": "https://bibletower.net",
-      "description": "以基督信仰所建立的論壇，讓彼此可以心靈分享與交流，在論壇中交流經驗、學習知識，實踐信仰。",
+      "name": "基督徒讀書會",
+      "url": "https://linktr.ee/TBBookClub",
+      "description": "基督徒讀書會以研經神學歷史類、信仰應用見證類、坊間暢銷書，三種類型輪替，歡迎大家一同參與。",
       "icon": {
-        "default": "bibletower.png"
+        "default": "tbbookclub.png"
       }
     },
     {

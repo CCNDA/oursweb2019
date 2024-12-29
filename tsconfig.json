@@ -1,27 +1,7 @@
 {
-  "compilerOptions": {
-    "outDir": "./dist/",
-    "sourceMap": true,
-    "noImplicitAny": true,
-    "module": "commonjs",
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "es6",
-    "jsx": "react",
-    "lib": ["es2015", "es2017", "dom"],
-    "removeComments": true,
-    "allowJs": true,
-    "baseUrl": "./src",
-    "paths": {
-      "@app/*": ["app/*"],
-      "@assets/*": ["assets/*"],
-      "@pages/*": ["pages/*"],
-      "@services/*": ["services/*"],
-      "@tests/*": ["./*"],
-      "@components/*": ["components/*"],
-      "@theme/*": ["theme/*"],
-      "@data/*": ["data/*"]
-    }
-  }
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
 }

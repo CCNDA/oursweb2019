@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,500,700&display=swap&subset=chinese-traditional');
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial,
+    sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: black;
+  background-color: white;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.radix-themes {
+  --default-font-family: 'Noto Sans TC', sans-serif;
+  --heading-font-family: 'Noto Sans TC', sans-serif;
+  --code-font-family: 'Noto Sans TC', sans-serif;
+  --strong-font-family: 'Noto Sans TC', sans-serif;
+  --em-font-family: 'Noto Sans TC', sans-serif;
+  --quote-font-family: 'Noto Sans TC', sans-serif;
+}
